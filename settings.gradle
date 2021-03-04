@@ -1,0 +1,4 @@
+include ':kotlin_test'
+include ':java_test'
+include ':app'
+rootProject.name = "My Application"
