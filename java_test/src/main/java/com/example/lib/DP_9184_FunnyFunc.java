@@ -2,14 +2,44 @@ package com.example.lib;
 
 
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class DP_9184_FunnyFunc {
+public  class DP_9184_FunnyFunc {
+    final int WEIGHT = 50;
     int[][][] arr;
 
+    public void process() {
+
+//        Scanner sc = new Scanner(System.in);
+        int[] input = new int[3];
+//        while (true) {
+//            input[0] = sc.nextInt();
+//            input[1] = sc.nextInt();
+//            input[2] = sc.nextInt();
+            input[0] = 50;
+            input[1] = 50;
+            input[2] = 50;
+            arr = new int[101][101][101];
+
+//            if (input[0] == -1 && input[1] == -1 && input[2] == -1) {
+//                break;
+//            }
+            w(input[0], input[1], input[2]);
+
+            print(input[0], input[1], input[2]);
+
+//        }
+    }// end process
+
     public int w(int a, int b, int c) {
-        int a_save = a + 50;
-        int b_save = b + 50;
-        int c_save = c + 50;
+        if (a > 20 || b > 20 || c > 20) {
+            a = 20;
+            b = 20;
+            c = 20;
+        }
+        int a_save = a + WEIGHT;
+        int b_save = b + WEIGHT;
+        int c_save = c + WEIGHT;
         if (arr[a_save][b_save][c_save] != 0) {
             return arr[a_save][b_save][c_save];
         }
@@ -18,35 +48,37 @@ public class DP_9184_FunnyFunc {
         } else if (a > 20 || b > 20 || c > 20) {
             arr[a_save][b_save][c_save] = w(20, 20, 20);
         } else if (a < b && b < c) {
-            arr[a_save][b_save][c_save] =
-                    w(a, b, c - 1)
-                            + w(a, b - 1, c - 1)
-                            - w(a, b - 1, c);
+            arr[a_save][b_save][c_save] = w(a, b, c - 1) + w(a, b - 1, c - 1) - w(a, b - 1, c);
         } else {
-            arr[a_save][b_save][c_save] =
-                    w(a - 1, b, c)
-                            + w(a - 1, b - 1, c)
-                            + w(a - 1, b, c - 1)
-                            - w(a - 1, b - 1, c - 1);
+            arr[a_save][b_save][c_save] = w(a - 1, b, c) + w(a - 1, b - 1, c) + w(a - 1, b, c - 1)
+                    - w(a - 1, b - 1, c - 1);
         }
-        System.out.println("0,1,2: " + a + ", " + b + "," + c + " :" + arr[a_save][b_save][c_save]);
+        //test로그
+//			if (a == WEIGHT && b == WEIGHT && c == WEIGHT) {
+//				System.out.println("0,1,2: " + a + ", " + b + ", " + c + " :" + arr[a_save][b_save][c_save]);
+//			}
+//			System.out.println("0,1,2: " + a + ", " + b + ", " + c + " :" + arr[a_save][b_save][c_save]);
+
         return arr[a_save][b_save][c_save];
     }
 
+    //Weight 예외처리 하여 출력
+    public void print(int input, int input2, int input3) {
+        int index1 =input + WEIGHT;
+        int index2 =input2 + WEIGHT;
+        int index3= input3 + WEIGHT;
+        if (index1 > 70) {
+            index1 =70;
+        }
+        if (index2 > 70) {
+            index2 =70;
+        }
+        if (index3 > 70) {
+            index3 =70;
+        }
 
-    public void process() {
-        //1. 0 ~ 100으로 입력받는다 가정하고 개발한다.
-        //2. -50 ~ 50을 입력한다 가정할 때 어떻게 바뀌어야 될지 생각해보자
-        //메모라이즈에 저장할 때 50 을 추가해서 저장한다.
-
-        int i = 10;
-        int i1 = 4;
-        int i2 = 6;
-        arr = new int[101][101][101];
-
-        w(i, i1, i2);
-
-        System.out.print("w(" + i + ", " + i1 + ", " + i2 + ") = " + arr[i + 50][i1 + 50][i2 + 50]);
+        System.out.println("w(" + input + ", " + input2 + ", " + input3 + ") = "
+                + arr[index1][index2][index3]);
     }
 
-}
+}// end Class
