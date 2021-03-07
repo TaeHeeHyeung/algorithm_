@@ -1,10 +1,8 @@
 package com.example.lib;
 
 
-import java.util.Arrays;
-import java.util.Scanner;
-
-public  class DP_9184_FunnyFunc {
+//참고해보기: https://m.blog.naver.com/PostView.nhn?blogId=occidere&logNo=221405838341&proxyReferer=https:%2F%2Fwww.google.com%2F
+public class DP_9184_FunnyFunc {
     final int WEIGHT = 50;
     int[][][] arr;
 
@@ -16,17 +14,17 @@ public  class DP_9184_FunnyFunc {
 //            input[0] = sc.nextInt();
 //            input[1] = sc.nextInt();
 //            input[2] = sc.nextInt();
-            input[0] = 50;
-            input[1] = 50;
-            input[2] = 50;
-            arr = new int[101][101][101];
+        input[0] = 50;
+        input[1] = 50;
+        input[2] = 50;
+        arr = new int[101][101][101];
 
 //            if (input[0] == -1 && input[1] == -1 && input[2] == -1) {
 //                break;
 //            }
-            w(input[0], input[1], input[2]);
+        w(input[0], input[1], input[2]);
 
-            print(input[0], input[1], input[2]);
+        print(input[0], input[1], input[2]);
 
 //        }
     }// end process
@@ -39,7 +37,7 @@ public  class DP_9184_FunnyFunc {
             return arr[a_save][b_save][c_save];
         }
 
-        if ((a <= 0 || b <= 0|| c <= 0) && arr[a_save][b_save][c_save] != 0) {
+        if ((a <= 0 || b <= 0 || c <= 0) && arr[a_save][b_save][c_save] != 0) {
             return arr[a_save][b_save][c_save];
         }
         if (arr[a_save][b_save][c_save] != 0) {
@@ -67,17 +65,17 @@ public  class DP_9184_FunnyFunc {
 
     //Weight 예외처리 하여 출력
     public void print(int input, int input2, int input3) {
-        int index1 =input + WEIGHT;
-        int index2 =input2 + WEIGHT;
-        int index3= input3 + WEIGHT;
+        int index1 = input + WEIGHT;
+        int index2 = input2 + WEIGHT;
+        int index3 = input3 + WEIGHT;
         if (index1 > 70) {
-            index1 =70;
+            index1 = 70;
         }
         if (index2 > 70) {
-            index2 =70;
+            index2 = 70;
         }
         if (index3 > 70) {
-            index3 =70;
+            index3 = 70;
         }
 
         System.out.println("w(" + input + ", " + input2 + ", " + input3 + ") = "
