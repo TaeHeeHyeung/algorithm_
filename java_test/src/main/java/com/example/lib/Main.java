@@ -4,8 +4,9 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Mathematics_10430 p10430 = new Mathematics_10430();
-        p10430.process(5,8,4);
+        Mathematics_4375 p4375 = new Mathematics_4375();
+        System.out.println(p4375.process(7));
+
     }
 }
 
