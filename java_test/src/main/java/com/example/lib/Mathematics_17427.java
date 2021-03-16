@@ -4,7 +4,7 @@ public class Mathematics_17427 {
     public long process(int n) {
         long result = 0;
         for (int i = 1; i <= n; i++) {
-            result += f(i);
+            result += n / i * i;
         }
 
         return result;
