@@ -10,7 +10,7 @@ public class Mathematics_17427 {
         return result;
     }
 
-    public long f(int a) {
+   /* public long f(int a) {
         double sqrtA = Math.sqrt(a);
         int result = 0;
         for (int i = 1; i <= sqrtA; i++) {
@@ -22,5 +22,5 @@ public class Mathematics_17427 {
             }
         }
         return result;
-    }
+    }*/
 }
