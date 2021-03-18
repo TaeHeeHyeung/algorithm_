@@ -24,10 +24,6 @@ public class Mathematics_2609 {
     // 24% 10 =4 , 10 %4 =2 , 4 %2= 0
     // 3 2 => 3%2 =1
     public static int GCD(int n2, int n1) {
-
-//        int max = Math.max(n1, n2);
-//        int min = Math.min(n1, n2);
-
         while (n1 !=0) {
             int r = n2%n1;
             n2= n1;
